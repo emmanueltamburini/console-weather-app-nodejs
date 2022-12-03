@@ -1,7 +1,7 @@
 import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js"
 import Searches from "./models/searches.js";
 import 'colors';
-
+import axios from "axios";
 
 const main = async () => {
 
@@ -15,7 +15,7 @@ const main = async () => {
             case 1:
                 // Show message
                 const place = await readInput('Select a place: ');
-                console.log(place);
+                await searches.city(place);
 
                 // Search places
 
