@@ -9,7 +9,7 @@ export default class Searches {
 
     get paramsMapbox() {
         return {
-            'access_token': 'pk.eyJ1IjoiZW1tYW51ZWx0YW1idXJpbmkiLCJhIjoiY2w4dGk5YnJpMDd2dzNvcTl3dmU2NGozYSJ9.r73x-TRNbpKFOYlQds4iCw',
+            'access_token': process.env.MAPBOX_KEY,
             'limit': 5,
             'language': 'en'
         };

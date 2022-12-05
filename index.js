@@ -1,6 +1,9 @@
+import * as dotenv from 'dotenv' 
+import 'colors';
 import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js"
 import Searches from "./models/searches.js";
-import 'colors';
+
+dotenv.config()
 
 const main = async () => {
 
