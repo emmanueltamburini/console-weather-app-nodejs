@@ -1,7 +1,6 @@
 import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js"
 import Searches from "./models/searches.js";
 import 'colors';
-import axios from "axios";
 
 const main = async () => {
 
