@@ -32,12 +32,13 @@ const main = async () => {
                 // Show results
 
                 console.log('\nCity information\n'.green);
-                console.log('City: ', selectedPlace.name);
+                console.log('City: ', selectedPlace.name.green);
                 console.log('Lat: ', selectedPlace.lat);
                 console.log('Lng: ', selectedPlace.lng);
                 console.log('Temperature: ', weather.temp);
                 console.log('Minimum: ', weather.min);
                 console.log('Maximum: ', weather.max);
+                console.log('How is the weather: ', weather.desc.green);
 
                 break;
 
