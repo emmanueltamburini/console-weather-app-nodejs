@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv' 
 import 'colors';
-import { inquirerMenu, pause, readInput } from "./helpers/inquirer.js"
+import { inquireListPlaces, inquirerMenu, pause, readInput } from "./helpers/inquirer.js"
 import Searches from "./models/searches.js";
 
 dotenv.config()
@@ -16,24 +16,28 @@ const main = async () => {
         switch (opt) {
             case 1:
                 // Show message
-                const place = await readInput('Select a place: ');
-                await searches.city(place);
+                const searchedPlace = await readInput('Select a place: ');
 
                 // Search places
+                const places = await searches.getCitiesByPlace(searchedPlace);
 
                 // Select places
+                const selectedIdPlace = await inquireListPlaces(places);
+                const selectedPlace = places.find(l => l.id === selectedIdPlace);
 
                 // Weather
+                const weather = await searches.getWeatherByLatAndLon(selectedPlace.lat, selectedPlace.lng);
+
 
                 // Show results
 
                 console.log('\nCity information\n'.green);
-                console.log('City: ', );
-                console.log('Lat: ', );
-                console.log('Lng: ', );
-                console.log('Temperature: ', );
-                console.log('Minimum: ', );
-                console.log('Maximum: ', );
+                console.log('City: ', selectedPlace.name);
+                console.log('Lat: ', selectedPlace.lat);
+                console.log('Lng: ', selectedPlace.lng);
+                console.log('Temperature: ', weather.temp);
+                console.log('Minimum: ', weather.min);
+                console.log('Maximum: ', weather.max);
 
                 break;
 

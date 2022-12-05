@@ -66,12 +66,12 @@ const readInput = async (message) => {
     return desc;
 }
 
-const inquireDeleteMenu = async (tasks = []) => {
+const inquireListPlaces = async (places = []) => {
     console.clear();
-    const choices = tasks.map((task, index) => 
+    const choices = places.map((place, index) => 
         ({
-            value: task.id,
-            name: `${((index+1).toString() + '.').green} ${task.desc}`
+            value: place.id,
+            name: `${((index+1).toString() + '.').green} ${place.name}`
         }));
 
         choices.unshift({
@@ -83,7 +83,7 @@ const inquireDeleteMenu = async (tasks = []) => {
             {
                 type: 'list',
                 name: 'id',
-                message: 'What do you want to delete?',
+                message: 'Please, select a place',
                 choices
             }
         ];
@@ -131,7 +131,7 @@ export {
     inquirerMenu,
     pause,
     readInput,
-    inquireDeleteMenu,
+    inquireListPlaces,
     inquireConfirmMenu,
     inquireCheckListMenu
 }
