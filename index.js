@@ -23,14 +23,18 @@ const main = async () => {
 
                 // Select places
                 const selectedIdPlace = await inquireListPlaces(places);
+                if (selectedIdPlace === 0) continue;
+
                 const selectedPlace = places.find(l => l.id === selectedIdPlace);
+
+                //Save info
+                searches.addToHistory(selectedPlace.name);
 
                 // Weather
                 const weather = await searches.getWeatherByLatAndLon(selectedPlace.lat, selectedPlace.lng);
 
 
                 // Show results
-
                 console.log('\nCity information\n'.green);
                 console.log('City: ', selectedPlace.name.green);
                 console.log('Lat: ', selectedPlace.lat);
@@ -43,6 +47,9 @@ const main = async () => {
                 break;
 
             case 2:
+                searches.formatHistory.forEach((place, index) => {
+                    console.log(`${((index+1).toString() + '.').green} ${place}`)
+                })
             
                 break;
         }
