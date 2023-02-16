@@ -1,6 +1,6 @@
-# Websocket-nodejs-app
+# Console-weather-app
 
-## TicketApp README
+## Console-weather README
 
 This console app is an example about nodejs, Its functionality is to simulate a console app to search about places and their weathers.
 
